@@ -37,12 +37,7 @@ resource "docker_container" "nginx" {
   }
 }
 
-resource "docker_image" "nginx" {
-  name         = "nginx:latest"
-  keep_locally = true
-}
-
-resource "docker_container" "nginx" {
+resource "docker_container" "nginx2" {
   image = docker_image.nginx.latest
   name  = "tutorial22"
   ports {
