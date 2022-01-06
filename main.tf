@@ -23,25 +23,25 @@ resource "docker_container" "jenkins" {
   }
 }
 
-resource "docker_image" "nginx" {
-  name         = "nginx:latest"
-  keep_locally = true
-}
+# resource "docker_image" "nginx" {
+#   name         = "nginx:latest"
+#   keep_locally = true
+# }
 
-resource "docker_container" "nginx" {
-  image = docker_image.nginx.latest
-  name  = "tutorial"
-  ports {
-    internal = 80
-    external = 8001
-  }
-}
+# resource "docker_container" "nginx" {
+#   image = docker_image.nginx.latest
+#   name  = "tutorial"
+#   ports {
+#     internal = 80
+#     external = 8001
+#   }
+# }
 
-resource "docker_container" "nginx2" {
-  image = docker_image.nginx.latest
-  name  = "tutorial22"
-  ports {
-    internal = 80
-    external = 8002
-  }
-}
+# resource "docker_container" "nginx2" {
+#   image = docker_image.nginx.latest
+#   name  = "tutorial22"
+#   ports {
+#     internal = 80
+#     external = 8002
+#   }
+# }
