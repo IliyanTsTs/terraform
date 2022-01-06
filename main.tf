@@ -25,7 +25,7 @@ resource "docker_container" "jenkins" {
 
 resource "docker_image" "nginx" {
   name         = "nginx:latest"
-  keep_locally = false
+  keep_locally = true
 }
 
 resource "docker_container" "nginx" {
@@ -34,5 +34,19 @@ resource "docker_container" "nginx" {
   ports {
     internal = 80
     external = 8001
+  }
+}
+
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = true
+}
+
+resource "docker_container" "nginx" {
+  image = docker_image.nginx.latest
+  name  = "tutorial22"
+  ports {
+    internal = 80
+    external = 8002
   }
 }
